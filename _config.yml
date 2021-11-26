@@ -1,0 +1,6 @@
+# archivo: _config.yml
+title: "Bombeo de carga en nanohojuelas de grafeno"
+logo: images/FQ-bw.png
+execute:
+  execute_notebooks: "off"
+#

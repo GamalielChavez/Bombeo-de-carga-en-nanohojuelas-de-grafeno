@@ -1,0 +1,29 @@
+%%time
+%%capture
+! sudo apt-get install texlive-latex-recommended 
+! sudo apt-get install dvipng texlive-latex-extra texlive-fonts-recommended  
+! wget http://mirrors.ctan.org/macros/latex/contrib/type1cm.zip 
+! unzip type1cm.zip -d /tmp/type1cm 
+! cd /tmp/type1cm/type1cm/ && sudo latex type1cm.ins
+! sudo mkdir /usr/share/texmf/tex/latex/type1cm 
+! sudo cp /tmp/type1cm/type1cm/type1cm.sty /usr/share/texmf/tex/latex/type1cm 
+! sudo texhash 
+! apt install cm-super
+
+from pylab import *
+from multiprocessing import Pool
+from matplotlib import animation
+
+from IPython.core.display import display, HTML
+display(HTML("<style>.container { width:100% !important; }</style>"))
+from IPython.display import Image
+
+Image(filename = "red_infinita.png", width = 800)
+
+Image(filename = "red_finita.png", width = 800)
+
+Image(filename = "unitaria.png", width = 400)
+
+Image(filename = "bordes.png", width = 800)
+
+
