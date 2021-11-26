@@ -1,0 +1,802 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bandas del Hamiltoniano de Bloch. &#8212; Bombeo de carga en nanohojuelas de grafeno</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="NB3_SS_Gama.html" />
+    <link rel="prev" title="Grafeno, de la red infinita a la nanohojuela." href="NB1_SS_Gama.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/FQ-bw.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Bombeo de carga en nanohojuelas de grafeno</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="inicio.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="NB1_SS_Gama.html">
+   Grafeno, de la red infinita a la nanohojuela.
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Bandas del Hamiltoniano de Bloch.
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/NB2_SS_Gama.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/NB2_SS_Gama.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
+%%capture
+! sudo apt-get install texlive-latex-recommended 
+! sudo apt-get install dvipng texlive-latex-extra texlive-fonts-recommended  
+! wget http://mirrors.ctan.org/macros/latex/contrib/type1cm.zip 
+! unzip type1cm.zip -d /tmp/type1cm 
+! cd /tmp/type1cm/type1cm/ &amp;&amp; sudo latex type1cm.ins
+! sudo mkdir /usr/share/texmf/tex/latex/type1cm 
+! sudo cp /tmp/type1cm/type1cm/type1cm.sty /usr/share/texmf/tex/latex/type1cm 
+! sudo texhash 
+! apt install cm-super
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 526 ms, sys: 108 ms, total: 634 ms
+Wall time: 1min 7s
+</pre></div>
+</div>
+</div>
+</div>
+<p>#Importe e instalación de librerías.</p>
+<p>Para el desarrollo y seguimiento de este material, resulta importante comenzar por instalar e importar elementos que nos serán suma utilidad, entre ellas tenemos pylab y la librería Python tight binding (Pythtb).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+!pip install pythtb --upgrade
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pythtb</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s1">&#39;text.usetex&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;axes.linewidth&#39;</span><span class="p">:</span><span class="mf">1.5</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;axes.labelsize&#39;</span><span class="p">:</span><span class="s1">&#39;large&#39;</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;xtick.major.size&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;xtick.minor.size&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;ytick.major.size&#39;</span><span class="p">:</span><span class="mi">6</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;ytick.minor.size&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;xtick.major.width&#39;</span><span class="p">:</span><span class="mf">1.5</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;xtick.minor.width&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;ytick.major.width&#39;</span><span class="p">:</span><span class="mf">1.5</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;ytick.minor.width&#39;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;legend.frameon&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">&#39;legend.framealpha&#39;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div></div>
+</div>
+<p>#Usando python tight binding (PYTHTB).</p>
+<p>Una libreria que nos resulta de especial utilidad es <em>python tight binding</em>, en la que podemos definir los parámetros de nuestra red para posteriormente resolver el hamiltoniano en una aproximación de amarre fuerte. Dado lo anterior, es menester definir los parámetros que se modulan o toman en cuenta en el hamiltoniano de la celda unitaria.</p>
+<p>Definir dichos parámetros resulta esencial debido a que son aquellos que están directamente relacionados con el fenómeno de bombeo, que entendemos como un transporte de carga en la estructura de mi material entre dos puntos distintos.</p>
+<p>Así, tenemos nuestra red…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;red_param.png&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/NB2_SS_Gama_8_0.png" src="_images/NB2_SS_Gama_8_0.png" />
+</div>
+</div>
+<p>El Hamiltoniano de la celda unitaria es:</p>
+<p>\begin{align}
+H = \left[ \begin{array}{cccccc}
+\delta E(\theta)      &amp; c_{\rm ext}(\theta) e^{-i\vec{k}\cdot a_1}
+&amp; c_{\rm int}(\theta) &amp; 0<br />
+&amp; 0                   &amp; c_{\rm int} (\theta) \
+c_{\rm ext}(\theta) e^{i\vec{k}\cdot a_1} &amp; -\delta E(\theta)                          &amp; 0                   &amp; c_{\rm int}(\theta)  &amp; c_{\rm int}(\theta) &amp; 0 \
+c_{\rm int}(\theta)                        &amp; 0                                          &amp; -\delta E(\theta)   &amp; c_{\rm ext}( \theta)e^{-i\vec{k}\cdot a_2} &amp; c_{\rm int}(\theta) &amp; 0 \
+0 &amp; c_{\rm int}(\theta)                    &amp; c_{\rm ext} ( \theta)e^{i\vec{k}\cdot a_2} &amp; \delta E (\theta)   &amp; 0                    &amp; c_{\rm int}(\theta) \
+0 &amp; c_{\rm int}(\theta)                    &amp; c_{\rm int}(\theta)                        &amp; 0                   &amp; \delta E (\theta)    &amp; c_{\rm ext} (\theta)e^{-i\vec{k}\cdot a_3} \
+c_{\rm int} (\theta)                       &amp; 0                                          &amp; 0                   &amp; c_{\rm int} (\theta) &amp; c_{\rm ext} (\theta)e^{i\vec{k}\cdot a_3} &amp; -\delta E (\theta)
+\end{array}\right]
+\end{align}</p>
+<p>donde</p>
+<p>\begin{align}
+c_{\rm int}(\theta) &amp;=  t e^{-\beta (acc(1-u cos(\theta)) / acc-1) } \
+c_{\rm ext}(\theta) &amp;=  t e^{-\beta \big[ acc-2 u(\theta) \big] } \
+\delta E (\theta) &amp;= \epsilon \sin (\theta)\
+\end{align}</p>
+<p>Considerando este hamiltoniano, establecemos los parametros requeridos para nuestro modelo en <em>pythtb</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">π</span> <span class="o">=</span> <span class="n">pi</span>
+<span class="n">t</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.7</span> <span class="c1"># eV parámetro de acoplamiento</span>
+<span class="n">β</span> <span class="o">=</span> <span class="mf">3.37</span> <span class="c1"># parámetro de gruneissen </span>
+<span class="n">ϵ</span> <span class="o">=</span> <span class="mf">0.05</span> <span class="c1"># 50 meV energía en el sitio</span>
+<span class="n">u</span> <span class="o">=</span> <span class="mf">0.2</span>  <span class="c1"># la deformación máxima es del 20%</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="mf">1.42</span> <span class="c1"># distancia carbono carbono</span>
+
+<span class="k">def</span> <span class="nf">func_cext</span><span class="p">(</span><span class="n">θ</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">β</span><span class="o">*</span><span class="p">(</span> <span class="n">acc</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">u</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">θ</span><span class="p">))</span><span class="o">/</span><span class="n">acc</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">func_cint</span><span class="p">(</span><span class="n">θ</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">β</span><span class="o">*</span><span class="p">(</span> <span class="n">acc</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">u</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">θ</span><span class="p">))</span><span class="o">/</span><span class="n">acc</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">func_δE</span><span class="p">(</span><span class="n">θ</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">ϵ</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span>
+
+<span class="n">γ</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># 0.1*(1J)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lo siguiente es armar nuestro modelo de amarre fuerte, en el que incluimos los vectores de red (<em>lat</em>), los sitios de red y por último los hoppings, es importante mencionar que el hopping establecido para cada par de átomos será único, es decir,al definir el hopping del sitio 1 al 2, automáticamente quedará definido el hopping 2-1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hexaModel</span><span class="p">(</span><span class="n">θ</span><span class="p">):</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span> <span class="c1">#vectores de red</span>
+    <span class="n">a3</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">a2</span><span class="o">-</span><span class="n">a3</span>
+
+    <span class="n">A1</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a2</span>
+    <span class="n">A2</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a3</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="p">[</span> <span class="n">A1</span><span class="p">,</span> <span class="n">A2</span><span class="p">]</span>
+    <span class="n">orb</span> <span class="o">=</span> <span class="p">[</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> 
+            <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> 
+            <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">3</span>  <span class="p">]</span> <span class="c1">#sitios, 1/3a, coordenadas</span>
+    <span class="n">hexa</span> <span class="o">=</span> <span class="n">tb_model</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">orb</span><span class="p">)</span> <span class="c1">#dimreal,dimrecíproco,vectores de red, orbitales o sitios en term </span>
+                                    <span class="c1">#de los vectores de red</span>
+    
+    <span class="n">ϵ1</span> <span class="o">=</span> <span class="mf">1e-3</span>
+    <span class="n">ϵ2</span> <span class="o">=</span> <span class="mf">1e-4</span>
+    <span class="n">hexa</span><span class="o">.</span><span class="n">set_onsite</span><span class="p">([</span><span class="n">γ</span><span class="o">*</span><span class="n">func_δE</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span>   <span class="p">,</span><span class="o">-</span><span class="n">γ</span><span class="o">*</span><span class="n">func_δE</span><span class="p">(</span><span class="n">θ</span><span class="p">),</span>        <span class="c1">#términos en la diagonal del hamiltoniano</span>
+                    <span class="o">-</span><span class="n">γ</span><span class="o">*</span><span class="n">func_δE</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span><span class="o">-</span><span class="n">ϵ1</span><span class="p">,</span> <span class="n">γ</span><span class="o">*</span><span class="n">func_δE</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span><span class="o">+</span><span class="n">ϵ1</span><span class="p">,</span>
+                     <span class="n">γ</span><span class="o">*</span><span class="n">func_δE</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span><span class="o">+</span><span class="n">ϵ2</span><span class="p">,</span><span class="o">-</span><span class="n">γ</span><span class="o">*</span><span class="n">func_δE</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span><span class="o">-</span><span class="n">ϵ2</span><span class="p">])</span>
+    <span class="c1">#funcion que asigna un valor del hopping, valor del hopping entre que sitios (etiquetas) </span>
+    <span class="c1">#de que sitio a qué sitio va, al final el término exponencial</span>
+    <span class="n">hexa</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span><span class="n">func_cint</span><span class="p">(</span><span class="n">θ</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">hexa</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span><span class="n">func_cint</span><span class="p">(</span><span class="n">θ</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">hexa</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span><span class="n">func_cint</span><span class="p">(</span><span class="n">θ</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">hexa</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span><span class="n">func_cint</span><span class="p">(</span><span class="n">θ</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">hexa</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span><span class="n">func_cint</span><span class="p">(</span><span class="n">θ</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">hexa</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span><span class="n">func_cint</span><span class="p">(</span><span class="n">θ</span><span class="p">),</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    
+    <span class="n">hexa</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span><span class="n">func_cext</span><span class="p">(</span><span class="n">θ</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">hexa</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span><span class="n">func_cext</span><span class="p">(</span><span class="n">θ</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">hexa</span><span class="o">.</span><span class="n">set_hop</span><span class="p">(</span><span class="n">func_cext</span><span class="p">(</span><span class="n">θ</span><span class="p">),</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">hexa</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="bandas-del-hamiltoniano-de-bloch">
+<h1>Bandas del Hamiltoniano de Bloch.<a class="headerlink" href="#bandas-del-hamiltoniano-de-bloch" title="Permalink to this headline">¶</a></h1>
+<p>Para visualizar la estructura de bandas en el espacio recíproco, seleccionamos el modelo definido anteriormente para un valor definido de <span class="math notranslate nohighlight">\(\theta\)</span> , para el que resolvemos el hamiltoniano y obtenemos los
+eigenvalores para el camino de puntos k dados en <em>path</em>, que corresponde a los puntos de alta simetría y graficamos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hexa</span><span class="o">=</span><span class="n">hexaModel</span><span class="p">(</span><span class="o">-</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">etiqueta</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$\theta=-\pi$&quot;</span>
+<span class="c1"># Lista de puntos en el espacio recíproco </span>
+<span class="c1"># en términos de los vectores de la red recíproca</span>
+
+<span class="n">path</span>  <span class="o">=</span> <span class="p">[</span>      <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">],</span>      <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s2">&quot;$\Gamma$&quot;</span><span class="p">,</span>   <span class="sa">r</span><span class="s2">&quot;$K$&quot;</span><span class="p">,</span>   <span class="sa">r</span><span class="s2">&quot;$M$&quot;</span><span class="p">,</span>  <span class="sa">r</span><span class="s2">&quot;$K&#39;$&quot;</span><span class="p">,</span><span class="sa">r</span><span class="s2">&quot;$\Gamma$&quot;</span><span class="p">]</span>
+
+<span class="c1"># La función k_path regresa el camino de los puntos k</span>
+<span class="c1"># en el espacio recíproco que pasan por los puntos </span>
+<span class="c1"># dados en el argumento path</span>
+<span class="n">k_vec</span><span class="p">,</span> <span class="n">k_dist</span><span class="p">,</span> <span class="n">k_node</span> <span class="o">=</span> <span class="n">hexa</span><span class="o">.</span><span class="n">k_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="n">report</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#Si quiero poner el report debo quitar el report false</span>
+<span class="c1"># k_vec : arreglo con las parejas (kx,ky)</span>
+<span class="c1"># k_dist: arreglo con las distancia de separación entre puntos k</span>
+<span class="c1"># k_node: arreglo con la distancia de cada punto del path</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;starting calculation&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Calculating bands...&#39;</span><span class="p">)</span>
+
+<span class="c1"># Obtiene los eigenvalores para cada punto (kx,ky) de k_vec</span>
+<span class="n">evals</span> <span class="o">=</span> <span class="n">hexa</span><span class="o">.</span><span class="n">solve_all</span><span class="p">(</span><span class="n">k_vec</span><span class="p">)</span>
+
+<span class="c1"># La función shape regresa la forma del arreglo </span>
+<span class="c1"># que reciba como argumento</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">evals</span><span class="p">))</span>
+<span class="c1"># En este caso dice que son seis eigenvalores por cada punto k</span>
+<span class="c1"># Figura con la estructura de bandas</span>
+
+<span class="c1"># Establecemos el nombre de la figura (fig)</span>
+<span class="c1"># y los ejes dónde graficaremos (ax)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Graficamos las 6 bandas</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k_dist</span><span class="p">,</span><span class="n">evals</span><span class="p">[</span><span class="n">n</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Colocamos los xticks en los puntos del path</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">k_node</span><span class="p">)</span>
+<span class="c1"># Colocamos las etiquetas de los xticks </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+<span class="c1"># Dibujamos líneas verticales en cada xtick</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k_node</span><span class="p">)):</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">k_node</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="c1"># Colocamos un título a la gráfica</span>
+<span class="c1"># ax.set_title(&quot;Modelo hexa&quot;)</span>
+<span class="c1"># Colocamos una etiqueta al eje x</span>
+<span class="c1"># ax.set_xlabel(&quot;Camino en el espacio k&quot;)</span>
+<span class="c1"># Colocamos una etiqueta al eje y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$E\,[{\rm eV}]$&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">8.0</span><span class="p">,</span><span class="n">etiqueta</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+<span class="c1"># Especificamos los límites de graficación en el </span>
+<span class="c1"># eje de las abcisas</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">k_node</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">k_node</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#de 0 a -1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+<span class="c1"># Ajustamos los ejes y etiquetas antes de guardar la figura</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># Guardamos la figura como un pdf</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;BandasHexamodel_pi.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>---------------------------------------
+starting calculation
+---------------------------------------
+Calculating bands...
+(6, 101)
+</pre></div>
+</div>
+<img alt="_images/NB2_SS_Gama_15_1.png" src="_images/NB2_SS_Gama_15_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hexa</span><span class="o">=</span><span class="n">hexaModel</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">etiqueta</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;$\theta=0$&quot;</span>
+<span class="c1"># Lista de puntos en el espacio recíproco </span>
+<span class="c1"># en términos de los vectores de la red recíproca</span>
+
+<span class="n">path</span>  <span class="o">=</span> <span class="p">[</span>      <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],[</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">],</span>      <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s2">&quot;$\Gamma$&quot;</span><span class="p">,</span>   <span class="sa">r</span><span class="s2">&quot;$K$&quot;</span><span class="p">,</span>   <span class="sa">r</span><span class="s2">&quot;$M$&quot;</span><span class="p">,</span>  <span class="sa">r</span><span class="s2">&quot;$K&#39;$&quot;</span><span class="p">,</span><span class="sa">r</span><span class="s2">&quot;$\Gamma$&quot;</span><span class="p">]</span>
+
+<span class="c1"># La función k_path regresa el camino de los puntos k</span>
+<span class="c1"># en el espacio recíproco que pasan por los puntos </span>
+<span class="c1"># dados en el argumento path</span>
+<span class="n">k_vec</span><span class="p">,</span> <span class="n">k_dist</span><span class="p">,</span> <span class="n">k_node</span> <span class="o">=</span> <span class="n">hexa</span><span class="o">.</span><span class="n">k_path</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="n">report</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1">#Si quiero poner el report debo quitar el report false</span>
+<span class="c1"># k_vec : arreglo con las parejas (kx,ky)</span>
+<span class="c1"># k_dist: arreglo con las distancia de separación entre puntos k</span>
+<span class="c1"># k_node: arreglo con la distancia de cada punto del path</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;starting calculation&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Calculating bands...&#39;</span><span class="p">)</span>
+
+<span class="c1"># Obtiene los eigenvalores para cada punto (kx,ky) de k_vec</span>
+<span class="n">evals</span> <span class="o">=</span> <span class="n">hexa</span><span class="o">.</span><span class="n">solve_all</span><span class="p">(</span><span class="n">k_vec</span><span class="p">)</span>
+
+<span class="c1"># La función shape regresa la forma del arreglo </span>
+<span class="c1"># que reciba como argumento</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shape</span><span class="p">(</span><span class="n">evals</span><span class="p">))</span>
+<span class="c1"># En este caso dice que son seis eigenvalores por cada punto k</span>
+<span class="c1"># Figura con la estructura de bandas</span>
+
+<span class="c1"># Establecemos el nombre de la figura (fig)</span>
+<span class="c1"># y los ejes dónde graficaremos (ax)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Graficamos las 6 bandas</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">k_dist</span><span class="p">,</span><span class="n">evals</span><span class="p">[</span><span class="n">n</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># Colocamos los xticks en los puntos del path</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">k_node</span><span class="p">)</span>
+<span class="c1"># Colocamos las etiquetas de los xticks </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+<span class="c1"># Dibujamos líneas verticales en cada xtick</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">k_node</span><span class="p">)):</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">k_node</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="c1"># Colocamos un título a la gráfica</span>
+<span class="c1"># ax.set_title(&quot;Modelo hexa&quot;)</span>
+<span class="c1"># Colocamos una etiqueta al eje x</span>
+<span class="c1"># ax.set_xlabel(&quot;Camino en el espacio k&quot;)</span>
+<span class="c1"># Colocamos una etiqueta al eje y</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$E\,[{\rm eV}]$&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">8.0</span><span class="p">,</span><span class="n">etiqueta</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+<span class="c1"># Especificamos los límites de graficación en el </span>
+<span class="c1"># eje de las abcisas</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">k_node</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">k_node</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#de 0 a -1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span>
+<span class="c1"># Ajustamos los ejes y etiquetas antes de guardar la figura</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># Guardamos la figura como un pdf</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;BandasHexamodel_0.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>---------------------------------------
+starting calculation
+---------------------------------------
+Calculating bands...
+(6, 101)
+</pre></div>
+</div>
+<img alt="_images/NB2_SS_Gama_16_1.png" src="_images/NB2_SS_Gama_16_1.png" />
+</div>
+</div>
+<p>Podemos observar que en ambos casos tenemos el hamiltoniano correspondiente a un aislante, ya que no hay estados que crucen la banda prohibida.</p>
+<p>#Bombeo de estados en una nanohojuela de grafeno.</p>
+<p>Comenzaremos por definir la estructura y parámetros de nuestro sistema de estudio.</p>
+<p>Primero, delimitamos el tamaño de sistema, es decir, partiendo de una red infinita de grafeno, realizamos dos cortes para tener finalmente una estructura de nanohojuela de 3x3 celdas unitarias repetidas.</p>
+<p>Para visualizarlo de mejor manera, primero esquematizaremos la celda unitaria y las direcciones del alargamiento de red.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hexa</span>     <span class="o">=</span> <span class="n">hexaModel</span><span class="p">(</span><span class="n">π</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="p">)</span> <span class="o">=</span> <span class="n">hexa</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Grafeno, bulto&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/NB2_SS_Gama_19_0.png" src="_images/NB2_SS_Gama_19_0.png" />
+</div>
+</div>
+<p>Como siguiente paso. <em>definimos</em> los cortes a realizar sobre la red de grafeno, y visualizamos. La repetición será de 3x3 celdas unitarias, definidas por la variable <em>L</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Repetición de la celda unitaria</span>
+<span class="n">L</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">hexa</span>    <span class="o">=</span> <span class="n">hexaModel</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">cut_one</span> <span class="o">=</span> <span class="n">hexa</span><span class="o">.</span><span class="n">cut_piece</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">glue_edgs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">cut_two</span> <span class="o">=</span> <span class="n">cut_one</span><span class="o">.</span><span class="n">cut_piece</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">glue_edgs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Visualización</span>
+<span class="p">(</span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span><span class="p">)</span><span class="o">=</span><span class="n">cut_two</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Grafeno, nanohojuela&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;lat2x2.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/NB2_SS_Gama_21_0.png" src="_images/NB2_SS_Gama_21_0.png" />
+</div>
+</div>
+<p>Ya que contamos con nuestra red finita, el siguiente paso consiste en calcular sus eigenvalores y graficar el espectro energético. Observamos que la metodología para seleccionar la red es la misma y añadimos la función <em>solve</em> que nos regresa los eigenvalores y eigenvectores de nuestro hamiltoniano en la red finita y los valores dados de θ.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtener eigenvalores del la red finita</span>
+<span class="c1"># para todos los valores de θ</span>
+<span class="k">def</span> <span class="nf">ModeloHOTI</span><span class="p">(</span><span class="n">θ</span><span class="p">):</span>
+    <span class="n">L</span><span class="o">=</span><span class="mi">3</span>
+    <span class="n">hexa</span>    <span class="o">=</span> <span class="n">hexaModel</span><span class="p">(</span><span class="n">θ</span><span class="p">)</span>
+    <span class="n">cut_one</span> <span class="o">=</span> <span class="n">hexa</span><span class="o">.</span><span class="n">cut_piece</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">glue_edgs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">cut_two</span> <span class="o">=</span> <span class="n">cut_one</span><span class="o">.</span><span class="n">cut_piece</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">glue_edgs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">E</span><span class="p">,</span><span class="n">U</span>    <span class="o">=</span> <span class="n">cut_two</span><span class="o">.</span><span class="n">solve_all</span><span class="p">(</span><span class="n">eig_vectors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">E</span><span class="p">,</span><span class="n">U</span>
+
+<span class="n">θ</span>    <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">π</span><span class="p">,</span><span class="n">π</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># Intervalo de θ</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span> <span class="nb">map</span><span class="p">(</span><span class="n">ModeloHOTI</span><span class="p">,</span><span class="n">θ</span><span class="p">))</span> 
+
+<span class="n">Datosθ</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">θ</span><span class="p">)):</span>
+  <span class="n">Datosθ</span><span class="p">[</span><span class="n">θ</span><span class="p">[</span><span class="n">n</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;E&quot;</span><span class="p">:</span><span class="n">DATA</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;U&quot;</span><span class="p">:</span><span class="n">DATA</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="mi">1</span><span class="p">]}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para poder localizar los valores de energía correspondientes a nuestros bordes (que son nuestros puntos d einterés al querer describir el bombeo), debemos identificar el índice al que corresponden dichos sitios y así extraer y colorear específicamente el valor de energía que les corresponde. Enumeramos cada uno de los sitios y graficamos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtenemos las coordenadas del la red &quot;cut_two&quot;</span>
+<span class="n">A1</span><span class="p">,</span><span class="n">A2</span> <span class="o">=</span> <span class="n">cut_two</span><span class="o">.</span><span class="n">get_lat</span><span class="p">()</span>
+
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="p">[],[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cut_two</span><span class="o">.</span><span class="n">get_orb</span><span class="p">())):</span>
+    <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">cut_two</span><span class="o">.</span><span class="n">get_orb</span><span class="p">()[</span><span class="n">n</span><span class="p">],</span> <span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">))</span>
+    <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+
+<span class="c1"># Graficar para ver quienes son los puntos de la red</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">n</span><span class="p">],</span><span class="n">Y</span><span class="p">[</span><span class="n">n</span><span class="p">],</span><span class="s2">&quot;</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Coordenada x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Coordenada y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.0, 15.0)
+</pre></div>
+</div>
+<img alt="_images/NB2_SS_Gama_25_1.png" src="_images/NB2_SS_Gama_25_1.png" />
+</div>
+</div>
+<p>Ahora que identificamos los sitios que corresponden a las esquinas con las etiquetas [39,40] y [17,14] para las esquinas izquierda y derecha correspondientemente, procedemos a graficar el espectro energético.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Donde estan las esquinas</span>
+<span class="c1"># Izquierda : indice 39 y 40</span>
+<span class="c1"># Derecha   : indice 14 y 17</span>
+<span class="n">indIzq</span> <span class="o">=</span> <span class="p">[</span><span class="mi">39</span><span class="p">,</span><span class="mi">40</span><span class="p">]</span> <span class="c1">#3x3</span>
+<span class="n">indDer</span> <span class="o">=</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span><span class="mi">17</span><span class="p">]</span>
+
+<span class="c1"># Datos[n] = {&quot;θ&quot;:θ[n], &quot;E&quot;:DATA[n][0], &quot;U&quot;:DATA[n][1]}</span>
+<span class="k">for</span> <span class="n">θn</span> <span class="ow">in</span> <span class="n">θ</span><span class="p">:</span>
+  <span class="n">ListaProbIzq</span>  <span class="o">=</span> <span class="p">[]</span> <span class="c1">#Listas donde almacenaremos los datos de probabilidad de</span>
+  <span class="n">ListaProbDer</span>  <span class="o">=</span> <span class="p">[]</span> <span class="c1">#encontrar los estados en cada sitio.</span>
+  <span class="n">ListaProbBulk</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">en</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">54</span><span class="p">):</span>
+    <span class="n">ProbIzq</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;U&quot;</span><span class="p">][</span><span class="n">en</span><span class="p">][</span><span class="mi">39</span><span class="p">]</span><span class="o">*</span><span class="n">conjugate</span><span class="p">(</span><span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;U&quot;</span><span class="p">][</span><span class="n">en</span><span class="p">][</span><span class="mi">39</span><span class="p">])</span> \
+             <span class="o">+</span><span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;U&quot;</span><span class="p">][</span><span class="n">en</span><span class="p">][</span><span class="mi">40</span><span class="p">]</span><span class="o">*</span><span class="n">conjugate</span><span class="p">(</span><span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;U&quot;</span><span class="p">][</span><span class="n">en</span><span class="p">][</span><span class="mi">40</span><span class="p">]))</span>
+    <span class="n">ProbDer</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;U&quot;</span><span class="p">][</span><span class="n">en</span><span class="p">][</span><span class="mi">14</span><span class="p">]</span><span class="o">*</span><span class="n">conjugate</span><span class="p">(</span><span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;U&quot;</span><span class="p">][</span><span class="n">en</span><span class="p">][</span><span class="mi">14</span><span class="p">])</span> \
+             <span class="o">+</span><span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;U&quot;</span><span class="p">][</span><span class="n">en</span><span class="p">][</span><span class="mi">17</span><span class="p">]</span><span class="o">*</span><span class="n">conjugate</span><span class="p">(</span><span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;U&quot;</span><span class="p">][</span><span class="n">en</span><span class="p">][</span><span class="mi">17</span><span class="p">]))</span>
+    <span class="n">ProbBulk</span><span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">ProbIzq</span> <span class="o">-</span> <span class="n">ProbDer</span>
+    <span class="n">ListaProbIzq</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">ProbIzq</span><span class="p">)</span>
+    <span class="n">ListaProbDer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">ProbDer</span> <span class="p">)</span>
+    <span class="n">ListaProbBulk</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ProbBulk</span><span class="p">)</span>
+  <span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;ProbIzq&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">array</span><span class="p">(</span> <span class="n">ListaProbIzq</span> <span class="p">)</span>
+  <span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;ProbDer&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">array</span><span class="p">(</span> <span class="n">ListaProbDer</span> <span class="p">)</span>
+  <span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;ProbBulk&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span> <span class="n">ListaProbBulk</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span> <span class="c1">#Espectro de sección transversal Tight-binding</span>
+<span class="c1">#for n in range(len(Ek)): </span>
+    <span class="c1">#ax.scatter(θ,Ek[n].real,c=&#39;b&#39;,s=3)   </span>
+
+<span class="k">for</span> <span class="n">θn</span> <span class="ow">in</span> <span class="n">θ</span><span class="p">:</span>
+  <span class="n">E</span> <span class="o">=</span> <span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;E&quot;</span><span class="p">]</span>
+  <span class="n">xval</span> <span class="o">=</span> <span class="n">θn</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">))</span>
+  <span class="n">Prob</span> <span class="o">=</span> <span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;ProbIzq&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;ProbDer&quot;</span><span class="p">]</span>
+  <span class="n">graf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">xval</span><span class="p">,</span><span class="n">E</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="n">Prob</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">vmin</span><span class="o">=-</span><span class="mf">0.2</span> <span class="p">)</span>
+<span class="n">barracolor</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">graf</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">])</span>
+<span class="n">barracolor</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;Derecha&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulto&#39;</span><span class="p">,</span> <span class="s1">&#39;Izquierda&#39;</span><span class="p">])</span>  <span class="c1"># vertically oriented colorbar</span>
+<span class="c1">#c =&quot;b&quot;</span>
+<span class="c1">#c=&quot;#EEEEEE&quot;</span>
+<span class="c1">#c = entre cero y uno</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">π</span><span class="p">,</span><span class="n">π</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="c1">#ax.set_yticks([-10,-5,0,5,10] )</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">pi</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="sa">r</span><span class="s1">&#39;$-\pi$&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;$0$&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;$\pi$&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$E\,[{\rm eV}]$&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;UNO6x6.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/NB2_SS_Gama_28_0.png" src="_images/NB2_SS_Gama_28_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span> <span class="c1">#Espectro de sección transversal Tight-binding</span>
+<span class="c1">#for n in range(len(Ek)): </span>
+    <span class="c1">#ax.scatter(θ,Ek[n].real,c=&#39;b&#39;,s=3)   </span>
+
+<span class="k">for</span> <span class="n">θn</span> <span class="ow">in</span> <span class="n">θ</span><span class="p">:</span>
+  <span class="n">E</span> <span class="o">=</span> <span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;E&quot;</span><span class="p">]</span>
+  <span class="n">xval</span> <span class="o">=</span> <span class="n">θn</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">))</span>
+  <span class="n">Prob</span> <span class="o">=</span> <span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;ProbIzq&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">Datosθ</span><span class="p">[</span><span class="n">θn</span><span class="p">][</span><span class="s2">&quot;ProbDer&quot;</span><span class="p">]</span>
+  <span class="n">graf</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">xval</span><span class="p">,</span><span class="n">E</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="n">Prob</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">vmin</span><span class="o">=-</span><span class="mf">0.2</span> <span class="p">)</span>
+<span class="n">barracolor</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">graf</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.2</span><span class="p">])</span>
+<span class="n">barracolor</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;Derecha&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulto&#39;</span><span class="p">,</span> <span class="s1">&#39;Izquierda&#39;</span><span class="p">])</span>  <span class="c1"># vertically oriented colorbar</span>
+<span class="c1">#c =&quot;b&quot;</span>
+<span class="c1">#c=&quot;#EEEEEE&quot;</span>
+<span class="c1">#c = entre cero y uno</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">π</span><span class="p">,</span><span class="n">π</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#ax.set_yticks([-10,-5,0,5,10] )</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="n">pi</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">pi</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="sa">r</span><span class="s1">&#39;$-\pi$&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;$0$&#39;</span><span class="p">,</span><span class="sa">r</span><span class="s1">&#39;$\pi$&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$E\,[{\rm eV}]$&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;DOS6x6.png&quot;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/NB2_SS_Gama_29_0.png" src="_images/NB2_SS_Gama_29_0.png" />
+</div>
+</div>
+<p>El resultado nos muestra que al inicio del ciclo de bombeo, los estados están localizados en la esquina izquierda (derecha) y al transcurrir el tiempo, estos se distribuyen a lo largo del bulto, mientras que finalizar el ciclo, los estados se encuentran nuevamente localizados pero ahora en la esquina derecha (izquierda).</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="NB1_SS_Gama.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Grafeno, de la red infinita a la nanohojuela.</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="NB3_SS_Gama.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
